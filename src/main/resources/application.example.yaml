@@ -1,0 +1,21 @@
+server:
+  port: ${POST_SERVICE_PORT}
+  servlet:
+    context-path: /post
+
+spring:
+  application:
+    name: post-service
+  data:
+    mongodb:
+      uri: mongodb://${POST_MONGO_DB_USERNAME}:${POST_MONGO_DB_PASSWORD}@${POST_MONGO_DB_HOST}:${POST_MONGO_DB_PORT}/${POST_MONGO_DB_NAME}?authSource=admin
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+app:
+  services:
+    profile:
+      url: ${PROFILE_SERVICE_HOST}/profile
